@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class FishPondPopulation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the initial fish population: ");
+        int initialFish = scanner.nextInt();
+
+        System.out.print("Enter the maximum fish population before death: ");
+        int maxFish = scanner.nextInt();
+
+        if (initialFish <= 0 || maxFish <= 0) {
+            System.out.println("The initial fish population and the maximum fish population must be positive integers.");
+            return;
+        }
+
+        int currentFish = initialFish;
+        int year = 0;
+
+        System.out.println("\nYear\tFish Population");
+        while (currentFish <= maxFish) {
+        System.out.println(year + "\t\t" + currentFish + " fish");
+            
+        if (currentFish == maxFish) {
+        System.out.println("Fish will begin dying next year.");
+        }
+
+        currentFish *= 3;
+        year++;
+        }
+
+        System.out.println("In year " + year + ", the fish population will be " + currentFish + ", which exceeds the maximum limit of " + maxFish + " fish.");
+
+        scanner.close();
+    }
+}
